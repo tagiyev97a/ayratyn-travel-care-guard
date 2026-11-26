@@ -1,4 +1,7 @@
 import { useLang } from "@/lib/i18n";
+import { certifications, clients } from "@/lib/site";
+import { Button } from "@/components/ui/button";
+import { BadgeCheck, Mail, Phone, ArrowUpRight } from "lucide-react";
 
 const copy = {
   tk: {
@@ -49,14 +52,26 @@ const copy = {
 };
 
 export function CredentialsStrip() {
-  const { lang } = useLang();
+  const { lang, t } = useLang();
   const c = copy[lang];
+  const airline = clients.find((client) => client.name.en === "Turkish Airlines");
+  const badges = [airline?.logo, ...certifications.map((certificate) => certificate.badge)];
   return (
     <section className="border-b bg-logo-surface text-logo-foreground" aria-labelledby="credentials-title">
-      <div className="mx-auto max-w-6xl px-6 py-12">
-        <p id="credentials-title" className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">{c.credentials}</p>
-        <ul className="mt-6 grid gap-px border sm:grid-cols-2 md:grid-cols-4">
-          {c.items.map((item) => <li key={item} className="bg-card p-6 font-semibold leading-6">{item}</li>)}
+      <div className="mx-auto max-w-6xl px-6 py-10">
+        <h2 id="credentials-title" className="flex items-center gap-3 text-xl font-medium">
+          <BadgeCheck className="size-6 shrink-0 text-primary" aria-hidden="true" />{c.credentials}
+        </h2>
+        <ul className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
+          {c.items.map((item, index) => (
+            <li key={item} className="flex items-center gap-4 border-t pt-5">
+              {badges[index] && <img src={badges[index]} alt="" className="h-14 w-20 shrink-0 object-contain" />}
+              <div className="min-w-0">
+                <p className="text-sm font-semibold leading-6">{item}</p>
+                {index > 0 && <p className="mt-1 text-xs leading-5 text-muted-foreground">{certifications[index - 1] ? t(certifications[index - 1]?.name ?? { tk: "", en: "", ru: "" }) : ""}</p>}
+              </div>
+            </li>
+          ))}
         </ul>
       </div>
     </section>
@@ -74,9 +89,21 @@ export function ProposalCTA() {
           <h2 className="mt-4 text-4xl font-medium leading-tight md:text-5xl">{c.proposalTitle}</h2>
           <p className="mt-5 max-w-2xl leading-relaxed opacity-85">{c.proposalText}</p>
         </div>
-        <div className="flex flex-wrap gap-3">
-          <a href="mailto:info@ayratyn-hyzmat.com?subject=Corporate%20service%20proposal" className="inline-flex items-center justify-center bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-widest text-primary-foreground hover:bg-accent">{c.email}</a>
-          <a href="tel:+99312920510" className="inline-flex items-center justify-center border border-ink-foreground/40 px-6 py-3 text-sm font-semibold uppercase tracking-widest hover:bg-ink-foreground/10">{c.call}</a>
+        <div className="flex flex-col justify-center gap-5 md:border-l md:border-ink-foreground/20 md:pl-10">
+          <a href="mailto:info@ayratyn-hyzmat.com" className="flex items-start gap-3 text-sm hover:text-accent">
+            <Mail className="mt-0.5 size-5 shrink-0 text-accent" aria-hidden="true" /><span className="break-all">info@ayratyn-hyzmat.com</span>
+          </a>
+          <a href="tel:+99312920510" className="flex items-center gap-3 text-lg hover:text-accent">
+            <Phone className="size-5 shrink-0 text-accent" aria-hidden="true" />+993 12 92 05 10
+          </a>
+          <div className="mt-2 flex flex-wrap gap-3">
+            <Button asChild size="lg" className="h-auto min-h-12 whitespace-normal bg-accent text-accent-foreground hover:bg-accent/90">
+              <a href="mailto:info@ayratyn-hyzmat.com?subject=Corporate%20service%20proposal">{c.email}<ArrowUpRight aria-hidden="true" /></a>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="h-auto min-h-12 border-ink-foreground/40 bg-transparent text-ink-foreground hover:bg-ink-foreground/10 hover:text-ink-foreground">
+              <a href="tel:+99312920510"><Phone aria-hidden="true" />{c.call}</a>
+            </Button>
+          </div>
         </div>
       </div>
     </section>
