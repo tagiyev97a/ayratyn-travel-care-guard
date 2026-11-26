@@ -11,6 +11,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import { SiteHeader, SiteFooter } from "../components/SiteChrome";
+import { PatternField } from "../components/TurkmenPattern";
 import { LangProvider } from "../lib/i18n";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -125,6 +126,9 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <div className="pointer-events-none fixed inset-0 -z-10 text-primary opacity-[0.07]" aria-hidden="true">
+        <PatternField className="h-full w-full" />
+      </div>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <LangProvider>
       <SiteHeader />

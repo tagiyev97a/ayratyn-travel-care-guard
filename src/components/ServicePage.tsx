@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useLang, ui } from "@/lib/i18n";
 import { services, tel, type Service } from "@/lib/site";
+import { PatternField } from "@/components/TurkmenPattern";
 
 export function ServicePage({ s }: { s: Service }) {
   const { t } = useLang();
@@ -26,10 +27,15 @@ export function ServicePage({ s }: { s: Service }) {
               </div>
             )}
           </div>
-          <div className="bg-ink p-8 text-ink-foreground">
-            <p className="text-sm uppercase tracking-[0.2em] opacity-70">{t(ui.contact)}</p>
-            <a href={tel(s.phone)} className="mt-4 block font-display text-3xl hover:text-accent">{s.phone}</a>
-            {s.email && <a href={`mailto:${s.email}`} className="mt-3 block text-lg hover:text-accent">{s.email}</a>}
+          <div className="relative bg-ink p-8 text-ink-foreground">
+            <div className="pointer-events-none absolute inset-0 text-ink-foreground opacity-[0.14]">
+              <PatternField className="h-full w-full" />
+            </div>
+            <div className="relative">
+              <p className="text-sm uppercase tracking-[0.2em] opacity-70">{t(ui.contact)}</p>
+              <a href={tel(s.phone)} className="mt-4 block font-display text-3xl hover:text-accent">{s.phone}</a>
+              {s.email && <a href={`mailto:${s.email}`} className="mt-3 block text-lg hover:text-accent">{s.email}</a>}
+            </div>
           </div>
         </div>
       </section>

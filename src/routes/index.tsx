@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { HeroCarousel } from "@/components/HeroCarousel";
+import { PatternBorder, PatternField } from "@/components/TurkmenPattern";
 import { ui, useLang } from "@/lib/i18n";
 import { certifications, clients, services, tel } from "@/lib/site";
 
@@ -24,6 +25,9 @@ function Index() {
   return (
     <main>
       <HeroCarousel />
+      <div className="bg-primary text-primary-foreground">
+        <PatternBorder className="block h-[22px] w-full" />
+      </div>
       <section className="mx-auto max-w-6xl px-6 py-20 md:py-24">
         <p className="rise text-sm font-semibold uppercase tracking-[0.2em] text-accent">{t(ui.city)}</p>
         <h1 className="rise mt-6 max-w-5xl text-5xl font-medium leading-[1.02] md:text-7xl">
@@ -54,8 +58,11 @@ function Index() {
         </div>
       </section>
 
-      <section className="border-b bg-logo-surface text-logo-foreground" aria-labelledby="clients-title">
-        <div className="mx-auto max-w-6xl px-6 py-20">
+      <section className="relative border-b bg-logo-surface text-logo-foreground" aria-labelledby="clients-title">
+        <div className="pointer-events-none absolute inset-0 z-0 text-primary opacity-[0.05]">
+          <PatternField className="h-full w-full" />
+        </div>
+        <div className="relative z-10 mx-auto max-w-6xl px-6 py-20">
           <h2 id="clients-title" className="text-3xl font-medium md:text-4xl">{t(ui.clients)}</h2>
           <ul className="mt-10 grid grid-cols-2 gap-x-6 sm:grid-cols-3 md:grid-cols-4 md:gap-x-10">
             {clients.map((c) => (
