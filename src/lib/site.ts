@@ -7,6 +7,7 @@ import eni from "@/assets/eni.webp.asset.json";
 import gapInsaat from "@/assets/gap-insaat.webp.asset.json";
 import daewoo from "@/assets/daewoo.webp.asset.json";
 import ronesans from "@/assets/ronesans.webp.asset.json";
+import irata from "@/assets/irata.png.asset.json";
 import iso9001 from "@/assets/iso-9001.png.asset.json";
 import iso45001 from "@/assets/iso-45001.png.asset.json";
 
@@ -20,6 +21,7 @@ export type Service = {
   note?: T;
   phone: string;
   email?: string;
+  badge?: string;
 };
 
 export const services: Service[] = [
@@ -54,6 +56,7 @@ export const services: Service[] = [
       en: "Our facade team includes IRATA-certified technicians.",
       ru: "В нашей команде по фасадам работают специалисты с сертификатом IRATA.",
     },
+    badge: irata.url,
     phone: "+993 12 92 19 80",
   },
   {
@@ -83,7 +86,7 @@ export const clients: { name: T; logo?: string }[] = [
   { name: { tk: "Rönesans Holding", en: "Rönesans Holding", ru: "Rönesans Holding" }, logo: ronesans.url },
 ];
 
-export const certifications: { code: string; badge: string; name: T; note: T }[] = [
+export const certifications: { code: string; badge: string; name: T; note: T; pill?: T }[] = [
   {
     code: "ISO 9001:2015",
     badge: iso9001.url,
@@ -106,6 +109,25 @@ export const certifications: { code: string; badge: string; name: T; note: T }[]
       tk: "Işgärlerimiziň howpsuzlygy we saglygy üçin jogapkär çäreleri görýäris.",
       en: "We take responsibility for the safety and health of our staff.",
       ru: "Мы несём ответственность за безопасность и здоровье наших сотрудников.",
+    },
+  },
+  {
+    code: "IRATA",
+    badge: irata.url,
+    name: {
+      tk: "Industrial Rope Access Trade Association",
+      en: "Industrial Rope Access Trade Association",
+      ru: "Industrial Rope Access Trade Association",
+    },
+    note: {
+      tk: "Daşky ýüzleri arassalaýan toparymyzyň işgärleri IRATA şahadatnamasyna eýe.",
+      en: "The technicians on our facade cleaning team hold IRATA certificates.",
+      ru: "Специалисты нашей команды по мойке фасадов имеют сертификаты IRATA.",
+    },
+    pill: {
+      tk: "Işgärler şahadatnamaly",
+      en: "Staff certified",
+      ru: "Сотрудники сертифицированы",
     },
   },
 ];

@@ -15,7 +15,16 @@ export function ServicePage({ s }: { s: Service }) {
         <div className="mt-12 grid gap-12 md:grid-cols-[1.4fr_1fr]">
           <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
             <p>{t(s.long)}</p>
-            {s.note && <p className="border-l-2 border-accent pl-5 text-foreground">{t(s.note)}</p>}
+            {s.note && (
+              <div className="flex items-center gap-5 border-l-2 border-accent pl-5">
+                {s.badge && (
+                  <div className="flex size-20 shrink-0 items-center justify-center border bg-logo-surface p-2.5">
+                    <img src={s.badge} alt="IRATA" loading="lazy" className="h-full w-full object-contain" />
+                  </div>
+                )}
+                <p className="text-foreground">{t(s.note)}</p>
+              </div>
+            )}
           </div>
           <div className="bg-ink p-8 text-ink-foreground">
             <p className="text-sm uppercase tracking-[0.2em] opacity-70">{t(ui.contact)}</p>
