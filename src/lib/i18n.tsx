@@ -4,10 +4,10 @@ export type Lang = "tk" | "en" | "ru";
 export const langs: Lang[] = ["tk", "en", "ru"];
 export type T = Record<Lang, string>;
 
-const Ctx = createContext<{ lang: Lang; setLang: (l: Lang) => void }>({ lang: "tk", setLang: () => {} });
+const Ctx = createContext<{ lang: Lang; setLang: (l: Lang) => void }>({ lang: "en", setLang: () => {} });
 
 export function LangProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("tk");
+  const [lang, setLangState] = useState<Lang>("en");
   useEffect(() => {
     const s = localStorage.getItem("lang") as Lang | null;
     if (s && langs.includes(s)) setLangState(s);

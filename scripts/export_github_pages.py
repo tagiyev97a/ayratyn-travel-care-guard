@@ -8,7 +8,7 @@ from playwright.async_api import async_playwright
 BASE = "http://localhost:8080"
 OUT = Path(__file__).resolve().parent.parent / "docs"
 ROUTES = ["", "travel", "cleaning", "security"]
-LANGS = ["tk", "en", "ru"]
+LANGS = ["en", "tk", "ru"]
 assets = {}  # remote url -> local name
 
 def fetch_asset(url, ext_hint=""):
@@ -25,7 +25,7 @@ def fetch_asset(url, ext_hint=""):
     return local
 
 def page_path(lang, route):
-    parts = ([] if lang == "tk" else [lang]) + ([route] if route else [])
+    parts = ([] if lang == "en" else [lang]) + ([route] if route else [])
     return "/".join(parts + ["index.html"])
 
 def rel(from_page, target):
@@ -50,6 +50,7 @@ async def main():
     (OUT / "assets").mkdir(parents=True)
     (OUT / "assets" / "carousel.js").write_text(CAROUSEL_JS)
     (OUT / ".nojekyll").write_text("")
+    (OUT / "CNAME").write_text("www.ayratyn-hyzmat.com\n")
     async with async_playwright() as p:
         b = await p.chromium.launch(headless=True)
         for lang in LANGS:
