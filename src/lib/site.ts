@@ -79,7 +79,6 @@ export const clients: { name: T; logo?: string }[] = [
   { name: { tk: "Eni", en: "Eni", ru: "Eni" }, logo: eni.url },
   { name: { tk: "GAP İnşaat", en: "GAP İnşaat", ru: "GAP İnşaat" }, logo: gapInsaat.url },
   { name: { tk: "Rönesans Holding", en: "Rönesans Holding", ru: "Rönesans Holding" }, logo: ronesans.url },
-  { name: { tk: "BMG-niň Türkmenistandaky edarasy", en: "UN Office in Turkmenistan", ru: "Офис ООН в Туркменистане" } },
 ];
 
 export const tel = (p: string) => `tel:${p.replace(/\s/g, "")}`;
