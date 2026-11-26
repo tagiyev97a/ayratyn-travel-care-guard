@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { PatternBorder } from "@/components/TurkmenPattern";
+import { CredentialsStrip, ProposalCTA } from "@/components/TrustSections";
 import { ui, useLang } from "@/lib/i18n";
 import { certifications, clients, services, tel } from "@/lib/site";
 
@@ -28,6 +29,7 @@ function Index() {
       <div className="bg-primary text-primary-foreground">
         <PatternBorder className="block h-[22px] w-full" />
       </div>
+      <CredentialsStrip />
       <section className="mx-auto max-w-6xl px-6 py-20 md:py-24">
         <p className="rise text-sm font-semibold uppercase tracking-[0.2em] text-accent">{t(ui.city)}</p>
         <h1 className="rise mt-6 max-w-5xl text-5xl font-medium leading-[1.02] md:text-7xl">
@@ -93,6 +95,7 @@ function Index() {
           </ul>
         </div>
       </section>
+      <ProposalCTA />
     </main>
   );
 }

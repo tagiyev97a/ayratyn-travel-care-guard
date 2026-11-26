@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useLang, ui } from "@/lib/i18n";
 import { services, tel, type Service } from "@/lib/site";
+import { TravelHighlights } from "@/components/TrustSections";
 
 export function ServicePage({ s }: { s: Service }) {
   const { t } = useLang();
@@ -33,6 +34,7 @@ export function ServicePage({ s }: { s: Service }) {
           </div>
         </div>
       </section>
+      {s.slug === "travel" && <TravelHighlights />}
       <section className="border-t">
         <div className="mx-auto grid max-w-6xl gap-px md:grid-cols-2">
           {others.map((o) => (
