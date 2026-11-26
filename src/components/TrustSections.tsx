@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useLang, ui } from "@/lib/i18n";
-import { certifications, clients } from "@/lib/site";
+import agencyLogo from "@/assets/ayratyn-thy.png.asset.json";
 import { Button } from "@/components/ui/button";
-import { BadgeCheck, Mail, Phone, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, ArrowUpRight } from "lucide-react";
 
 const copy = {
   tk: {
@@ -40,48 +40,14 @@ const copy = {
   },
 };
 
-function airlineLogo() {
-  return clients.find((client) => client.name.en === "Turkish Airlines")?.logo;
-}
-
-export function CredentialsStrip() {
-  const { lang, t } = useLang();
-  const c = copy[lang];
-  return (
-    <section className="border-b bg-logo-surface text-logo-foreground" aria-labelledby="credentials-title">
-      <div className="mx-auto max-w-6xl px-6 py-10">
-        <h2 id="credentials-title" className="flex items-center gap-3 text-xl font-medium">
-          <BadgeCheck className="size-6 shrink-0 text-primary" aria-hidden="true" />{c.credentials}
-        </h2>
-        <ul className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-3">
-          {certifications.map((cert) => (
-            <li key={cert.code} className="flex items-center gap-4 border-t pt-5">
-              <img src={cert.badge} alt="" className="h-14 w-20 shrink-0 object-contain" />
-              <div className="min-w-0">
-                <p className="text-sm font-semibold leading-6">{cert.code}</p>
-                <p className="mt-1 text-xs leading-5 text-muted-foreground">{t(cert.pill ?? ui.certified)}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-}
-
 export function AirlineAgentBand() {
   const { lang, t } = useLang();
   const c = copy[lang];
-  const logo = airlineLogo();
   return (
-    <section className="border-y bg-secondary text-secondary-foreground" aria-labelledby="agent-title">
+    <section className="border-y bg-logo-surface text-logo-foreground" aria-labelledby="agent-title">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-10 gap-y-6 px-6 py-9">
-        {logo && (
-          <div className="flex h-16 w-44 shrink-0 items-center justify-center border bg-logo-surface p-3">
-            <img src={logo} alt="Turkish Airlines" loading="lazy" className="h-full w-full object-contain" />
-          </div>
-        )}
-        <div className="min-w-0 max-w-xl">
+        <img src={agencyLogo.url} alt="AÝRATYN HYZMAT authorised agency — Turkish Airlines" loading="lazy" className="h-auto w-full max-w-lg shrink-0 object-contain" />
+        <div className="min-w-0 max-w-md">
           <p id="agent-title" className="font-display text-2xl leading-tight md:text-3xl">{c.agentLabel}</p>
           <p className="mt-2 text-sm leading-6 text-muted-foreground">{c.agentText}</p>
         </div>
@@ -96,17 +62,12 @@ export function AirlineAgentBand() {
 export function AirlineAgentPanel() {
   const { lang } = useLang();
   const c = copy[lang];
-  const logo = airlineLogo();
   return (
     <section className="border-y bg-logo-surface text-logo-foreground" aria-labelledby="agent-title">
-      <div className="mx-auto grid max-w-6xl items-center gap-8 px-6 py-14 md:grid-cols-[auto_1fr] md:gap-12">
-        {logo && (
-          <div className="flex h-28 w-64 items-center justify-center border bg-logo-surface p-4">
-            <img src={logo} alt="Turkish Airlines" className="h-full w-full object-contain" />
-          </div>
-        )}
+      <div className="mx-auto grid max-w-6xl items-center gap-8 px-6 py-14 md:grid-cols-2 md:gap-12">
+        <img src={agencyLogo.url} alt="AÝRATYN HYZMAT authorised agency — Turkish Airlines" loading="lazy" className="h-auto w-full max-w-xl object-contain" />
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">{c.agentLabel}</p>
+          <h2 id="agent-title" className="font-display text-2xl leading-tight md:text-3xl">{c.agentLabel}</h2>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed">{c.agentText}</p>
         </div>
       </div>

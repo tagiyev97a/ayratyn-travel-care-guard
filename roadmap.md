@@ -4,3 +4,6 @@
 - [x] Keep hero slide photos clean — no pattern overlay on the title images
 - [x] Refine trust sections with existing certification badges and clear direct contact details
 - [x] Refresh and verify the GitHub Pages copy
+- [x] Move the detailed certificates section up and remove the duplicate strip
+- [x] Use the supplied agency lockup on the homepage and travel page
+- [x] Refresh and verify the GitHub Pages export after these changes

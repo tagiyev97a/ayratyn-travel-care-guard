@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { PatternBorder } from "@/components/TurkmenPattern";
-import { AirlineAgentBand, CredentialsStrip, ProposalCTA } from "@/components/TrustSections";
+import { AirlineAgentBand, ProposalCTA } from "@/components/TrustSections";
 import { ui, useLang } from "@/lib/i18n";
 import { certifications, clients, services, tel } from "@/lib/site";
 
@@ -29,7 +29,26 @@ function Index() {
       <div className="bg-primary text-primary-foreground">
         <PatternBorder className="block h-[22px] w-full" />
       </div>
-      <CredentialsStrip />
+      <section className="border-b" aria-labelledby="certificates-title">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <h2 id="certificates-title" className="text-3xl font-medium md:text-4xl">{t(ui.certificates)}</h2>
+          <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">{t(ui.certIntro)}</p>
+          <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {certifications.map((c) => (
+              <li key={c.code} className="flex flex-col border bg-card p-6 md:p-8">
+                <div className="flex size-24 items-center justify-center border bg-logo-surface p-3 sm:size-28">
+                  <img src={c.badge} alt={c.code} loading="lazy" className="h-full w-full object-contain" />
+                </div>
+                <p className="mt-6 font-display text-2xl leading-tight md:text-3xl">{c.code}</p>
+                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent">{t(c.pill ?? ui.certified)}</p>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                  <span className="font-semibold text-foreground">{t(c.name)}.</span> {t(c.note)}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
       <section className="mx-auto max-w-6xl px-6 py-20 md:py-24">
         <p className="rise text-sm font-semibold uppercase tracking-[0.2em] text-accent">{t(ui.city)}</p>
         <h1 className="rise mt-6 max-w-5xl text-5xl font-medium leading-[1.02] md:text-7xl">
@@ -77,26 +96,6 @@ function Index() {
         </div>
       </section>
 
-      <section className="border-b" aria-labelledby="certificates-title">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <h2 id="certificates-title" className="text-3xl font-medium md:text-4xl">{t(ui.certificates)}</h2>
-          <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">{t(ui.certIntro)}</p>
-          <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {certifications.map((c) => (
-              <li key={c.code} className="flex flex-col border bg-card p-6 md:p-8">
-                <div className="flex size-24 items-center justify-center border bg-logo-surface p-3 sm:size-28">
-                  <img src={c.badge} alt={c.code} loading="lazy" className="h-full w-full object-contain" />
-                </div>
-                <p className="mt-6 font-display text-2xl leading-tight md:text-3xl">{c.code}</p>
-                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent">{t(c.pill ?? ui.certified)}</p>
-                <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                  <span className="font-semibold text-foreground">{t(c.name)}.</span> {t(c.note)}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
       <ProposalCTA />
     </main>
   );
