@@ -34,7 +34,7 @@ export function SiteFooter() {
         <div>
           <img src={logo.url} alt="" className="mb-3 h-12 w-auto" />
           <p className="font-display text-xl">AÝRATYN HYZMAT</p>
-          <a href="mailto:info@ayratyn.com" className="mt-2 block text-sm text-muted-foreground hover:text-primary">info@ayratyn.com</a>
+          <a href="mailto:info@ayratyn-hyzmat.com" className="mt-2 block text-sm text-muted-foreground hover:text-primary">info@ayratyn-hyzmat.com</a>
         </div>
         {services.map((s) => (
           <div key={s.slug} className="text-sm">

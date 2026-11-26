@@ -26,7 +26,7 @@ export const services: Service[] = [
     },
     note: { tk: "Turkish Airlines awiakompaniýasynyň ygtyýarly agentligi.", en: "Authorised agent of Turkish Airlines.", ru: "Официальный агент авиакомпании Turkish Airlines." },
     phone: "+993 12 46 84 04",
-    email: "tickets@ayratyn.com",
+    email: "info@ayratyn-hyzmat.com",
   },
   {
     slug: "cleaning",
@@ -58,7 +58,7 @@ export const services: Service[] = [
       ru: "Свяжитесь с нашим главным офисом, чтобы узнать об охранных услугах и обсудить ваши задачи.",
     },
     phone: "+993 12 92 05 10",
-    email: "info@ayratyn.com",
+    email: "info@ayratyn-hyzmat.com",
   },
 ];
 
