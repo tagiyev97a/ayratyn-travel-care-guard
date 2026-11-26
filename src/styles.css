@@ -32,6 +32,8 @@
   --color-ring: var(--ring);
   --color-ink: var(--ink);
   --color-ink-foreground: var(--ink-foreground);
+  --color-logo-surface: var(--logo-surface);
+  --color-logo-foreground: var(--logo-foreground);
 }
 
 :root {
@@ -57,6 +59,8 @@
   --ring: oklch(0.7 0.13 65);
   --ink: oklch(0.2 0.035 205);
   --ink-foreground: oklch(0.95 0.015 85);
+  --logo-surface: oklch(1 0 0);
+  --logo-foreground: oklch(0.22 0.03 200);
 }
 
 @layer base {

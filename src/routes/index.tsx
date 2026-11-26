@@ -12,6 +12,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: desc },
       { property: "og:title", content: "AÝRATYN HYZMAT" },
       { property: "og:description", content: desc },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,
@@ -52,12 +54,16 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-ink text-ink-foreground">
+      <section className="border-b bg-logo-surface text-logo-foreground" aria-labelledby="clients-title">
         <div className="mx-auto max-w-6xl px-6 py-20">
-          <h2 className="text-sm font-sans font-semibold uppercase tracking-[0.2em] opacity-70">{t(ui.clients)}</h2>
-          <ul className="mt-8 grid gap-6 md:grid-cols-3">
+          <h2 id="clients-title" className="text-3xl font-medium md:text-4xl">{t(ui.clients)}</h2>
+          <ul className="mt-10 grid grid-cols-2 gap-x-6 sm:grid-cols-3 md:grid-cols-4 md:gap-x-10">
             {clients.map((c) => (
-              <li key={c.en} className="border-t border-ink-foreground/20 pt-5 font-display text-2xl">{t(c)}</li>
+              <li key={c.name.en} className={c.logo ? "flex h-36 items-center justify-center border-b px-4 py-8 md:h-44" : "col-span-2 pt-8 text-sm text-center sm:col-span-3 md:col-span-4"}>
+                {c.logo ? (
+                  <img src={c.logo} alt={t(c.name)} title={t(c.name)} loading="lazy" className="h-full max-h-20 w-full max-w-48 object-contain md:max-h-24" />
+                ) : t(c.name)}
+              </li>
             ))}
           </ul>
         </div>

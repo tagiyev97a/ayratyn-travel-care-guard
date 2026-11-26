@@ -11,6 +11,8 @@ export const Route = createFileRoute("/travel")({
       { name: "description", content: s.long.tk },
       { property: "og:title", content: `${s.name.tk} — AÝRATYN HYZMAT` },
       { property: "og:description", content: s.long.tk },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: () => <ServicePage s={s} />,

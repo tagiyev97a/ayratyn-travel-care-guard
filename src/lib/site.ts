@@ -1,4 +1,12 @@
 import type { T } from "./i18n";
+import turkmenistanAirlines from "@/assets/turkmenistan-airlines.webp.asset.json";
+import belavia from "@/assets/belavia.webp.asset.json";
+import bouygues from "@/assets/bouygues.webp.asset.json";
+import turkishAirlines from "@/assets/turkish-airlines.webp.asset.json";
+import eni from "@/assets/eni.webp.asset.json";
+import gapInsaat from "@/assets/gap-insaat.webp.asset.json";
+import daewoo from "@/assets/daewoo.webp.asset.json";
+import ronesans from "@/assets/ronesans.webp.asset.json";
 
 export type Service = {
   slug: "travel" | "cleaning" | "security";
@@ -62,10 +70,16 @@ export const services: Service[] = [
   },
 ];
 
-export const clients: T[] = [
-  { tk: "Daewoo E&C", en: "Daewoo E&C", ru: "Daewoo E&C" },
-  { tk: "Bouygues Bâtiment International", en: "Bouygues Bâtiment International", ru: "Bouygues Bâtiment International" },
-  { tk: "BMG-niň Türkmenistandaky edarasy", en: "UN Office in Turkmenistan", ru: "Офис ООН в Туркменистане" },
+export const clients: { name: T; logo?: string }[] = [
+  { name: { tk: "Turkish Airlines", en: "Turkish Airlines", ru: "Turkish Airlines" }, logo: turkishAirlines.url },
+  { name: { tk: "Turkmenistan Airlines", en: "Turkmenistan Airlines", ru: "Turkmenistan Airlines" }, logo: turkmenistanAirlines.url },
+  { name: { tk: "Belavia", en: "Belavia", ru: "Belavia" }, logo: belavia.url },
+  { name: { tk: "Daewoo E&C", en: "Daewoo E&C", ru: "Daewoo E&C" }, logo: daewoo.url },
+  { name: { tk: "Bouygues", en: "Bouygues", ru: "Bouygues" }, logo: bouygues.url },
+  { name: { tk: "Eni", en: "Eni", ru: "Eni" }, logo: eni.url },
+  { name: { tk: "GAP İnşaat", en: "GAP İnşaat", ru: "GAP İnşaat" }, logo: gapInsaat.url },
+  { name: { tk: "Rönesans Holding", en: "Rönesans Holding", ru: "Rönesans Holding" }, logo: ronesans.url },
+  { name: { tk: "BMG-niň Türkmenistandaky edarasy", en: "UN Office in Turkmenistan", ru: "Офис ООН в Туркменистане" } },
 ];
 
 export const tel = (p: string) => `tel:${p.replace(/\s/g, "")}`;
