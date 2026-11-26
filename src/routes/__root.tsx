@@ -126,7 +126,10 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="pointer-events-none fixed inset-0 -z-10 text-primary opacity-[0.07]" aria-hidden="true">
+      <div className="pointer-events-none fixed inset-y-0 left-0 -z-10 hidden w-[max(1.5rem,calc((100vw-72rem)/2))] max-w-40 border-r text-primary opacity-[0.12] xl:block" aria-hidden="true">
+        <PatternField className="h-full w-full" />
+      </div>
+      <div className="pointer-events-none fixed inset-y-0 right-0 -z-10 hidden w-[max(1.5rem,calc((100vw-72rem)/2))] max-w-40 border-l text-primary opacity-[0.12] xl:block" aria-hidden="true">
         <PatternField className="h-full w-full" />
       </div>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}

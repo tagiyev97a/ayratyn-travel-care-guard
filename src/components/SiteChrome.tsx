@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { services, tel } from "@/lib/site";
-import { PatternBorder, PatternField } from "@/components/TurkmenPattern";
+import { PatternField } from "@/components/TurkmenPattern";
 import logo from "@/assets/logo_blue.svg.asset.json";
 import { langs, ui, useLang } from "@/lib/i18n";
 
@@ -32,14 +32,8 @@ export function SiteFooter() {
   const { t } = useLang();
   return (
     <footer className="border-t bg-secondary">
-      <div className="bg-ink text-ink-foreground">
-        <PatternBorder className="block h-[22px] w-full" />
-      </div>
-      <div className="relative mx-auto max-w-6xl px-6">
-        <div className="pointer-events-none absolute inset-0 z-0 text-primary opacity-[0.05]">
-          <PatternField className="h-full w-full" />
-        </div>
-        <div className="relative z-10 grid gap-12 py-14 md:grid-cols-[1.1fr_1fr_1fr] md:gap-10 md:py-20">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="grid gap-12 py-14 md:grid-cols-[1.1fr_1fr_1fr] md:gap-10 md:py-20">
           <div>
             <Link to="/" className="inline-flex items-center gap-4">
               <img src={logo.url} alt="" className="h-16 w-auto shrink-0" />
@@ -77,10 +71,13 @@ export function SiteFooter() {
             </p>
           </div>
         </div>
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-t py-6 text-xs leading-5 text-muted-foreground">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t py-6 text-xs leading-5 text-muted-foreground">
           <p>© AÝRATYN HYZMAT. {t(ui.rights)}</p>
           <Link to="/" className="hover:text-primary">ayratyn-hyzmat.com <ArrowUpRight aria-hidden="true" className="ml-1 inline size-3.5" /></Link>
         </div>
+      </div>
+      <div className="border-t border-primary bg-primary text-primary-foreground" aria-hidden="true">
+        <PatternField className="block h-16 w-full opacity-25" />
       </div>
     </footer>
   );
