@@ -592,6 +592,10 @@
     margin-top: calc(var(--spacing) * -4);
   }
 
+  .mt-0\.5 {
+    margin-top: calc(var(--spacing) * .5);
+  }
+
   .mt-1 {
     margin-top: var(--spacing);
   }
@@ -715,6 +719,16 @@
     height: calc(var(--spacing) * 4);
   }
 
+  .size-5 {
+    width: calc(var(--spacing) * 5);
+    height: calc(var(--spacing) * 5);
+  }
+
+  .size-6 {
+    width: calc(var(--spacing) * 6);
+    height: calc(var(--spacing) * 6);
+  }
+
   .size-20 {
     width: calc(var(--spacing) * 20);
     height: calc(var(--spacing) * 20);
@@ -785,8 +799,16 @@
     height: calc(var(--spacing) * 12);
   }
 
+  .h-14 {
+    height: calc(var(--spacing) * 14);
+  }
+
   .h-16 {
     height: calc(var(--spacing) * 16);
+  }
+
+  .h-28 {
+    height: calc(var(--spacing) * 28);
   }
 
   .h-36 {
@@ -851,6 +873,10 @@
 
   .min-h-0 {
     min-height: 0;
+  }
+
+  .min-h-12 {
+    min-height: calc(var(--spacing) * 12);
   }
 
   .min-h-\[60px\] {
@@ -939,6 +965,14 @@
 
   .w-12 {
     width: calc(var(--spacing) * 12);
+  }
+
+  .w-20 {
+    width: calc(var(--spacing) * 20);
+  }
+
+  .w-44 {
+    width: calc(var(--spacing) * 44);
   }
 
   .w-64 {
@@ -1293,6 +1327,10 @@
     gap: calc(var(--spacing) * 6);
   }
 
+  .gap-8 {
+    gap: calc(var(--spacing) * 8);
+  }
+
   .gap-12 {
     gap: calc(var(--spacing) * 12);
   }
@@ -1323,10 +1361,22 @@
     column-gap: calc(var(--spacing) * 6);
   }
 
+  .gap-x-8 {
+    column-gap: calc(var(--spacing) * 8);
+  }
+
+  .gap-x-10 {
+    column-gap: calc(var(--spacing) * 10);
+  }
+
   :where(.space-x-1 > :not(:last-child)) {
     --tw-space-x-reverse: 0;
     margin-inline-start: calc(var(--spacing) * var(--tw-space-x-reverse));
     margin-inline-end: calc(var(--spacing) * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  .gap-y-6 {
+    row-gap: calc(var(--spacing) * 6);
   }
 
   :where(.divide-y > :not(:last-child)) {
@@ -1756,6 +1806,10 @@
     padding-block: calc(var(--spacing) * 8);
   }
 
+  .py-9 {
+    padding-block: calc(var(--spacing) * 9);
+  }
+
   .py-10 {
     padding-block: calc(var(--spacing) * 10);
   }
@@ -1786,6 +1840,10 @@
 
   .pt-4 {
     padding-top: calc(var(--spacing) * 4);
+  }
+
+  .pt-5 {
+    padding-top: calc(var(--spacing) * 5);
   }
 
   .pt-8 {
@@ -2013,6 +2071,14 @@
 
   .break-words {
     overflow-wrap: break-word;
+  }
+
+  .break-all {
+    word-break: break-all;
+  }
+
+  .whitespace-normal {
+    white-space: normal;
   }
 
   .whitespace-nowrap {
@@ -2595,8 +2661,14 @@
   }
 
   @media (hover: hover) {
-    .hover\:bg-accent:hover {
+    .hover\:bg-accent:hover, .hover\:bg-accent\/90:hover {
       background-color: var(--accent);
+    }
+
+    @supports (color: color-mix(in lab, red, red)) {
+      .hover\:bg-accent\/90:hover {
+        background-color: color-mix(in oklab, var(--accent) 90%, transparent);
+      }
     }
 
     .hover\:bg-destructive\/80:hover {
@@ -2679,6 +2751,10 @@
 
     .hover\:text-foreground:hover {
       color: var(--foreground);
+    }
+
+    .hover\:text-ink-foreground:hover {
+      color: var(--ink-foreground);
     }
 
     .hover\:text-muted-foreground:hover {
@@ -3320,6 +3396,10 @@
       grid-template-columns: 80px 1fr 1fr auto;
     }
 
+    .md\:grid-cols-\[auto_1fr\] {
+      grid-template-columns: auto 1fr;
+    }
+
     .md\:flex-row {
       flex-direction: row;
     }
@@ -3332,8 +3412,27 @@
       gap: calc(var(--spacing) * 10);
     }
 
+    .md\:gap-12 {
+      gap: calc(var(--spacing) * 12);
+    }
+
     .md\:gap-x-10 {
       column-gap: calc(var(--spacing) * 10);
+    }
+
+    .md\:border-l {
+      border-left-style: var(--tw-border-style);
+      border-left-width: 1px;
+    }
+
+    .md\:border-ink-foreground\/20 {
+      border-color: var(--ink-foreground);
+    }
+
+    @supports (color: color-mix(in lab, red, red)) {
+      .md\:border-ink-foreground\/20 {
+        border-color: color-mix(in oklab, var(--ink-foreground) 20%, transparent);
+      }
     }
 
     .md\:p-8 {
@@ -3350,6 +3449,10 @@
 
     .md\:pt-24 {
       padding-top: calc(var(--spacing) * 24);
+    }
+
+    .md\:pl-10 {
+      padding-left: calc(var(--spacing) * 10);
     }
 
     .md\:text-3xl {
@@ -3416,6 +3519,10 @@
   @media (width >= 64rem) {
     .lg\:grid-cols-3 {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .lg\:grid-cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
 

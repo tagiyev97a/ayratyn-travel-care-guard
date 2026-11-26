@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useLang, ui } from "@/lib/i18n";
 import { services, tel, type Service } from "@/lib/site";
-import { TravelHighlights } from "@/components/TrustSections";
+import { AirlineAgentPanel, TravelHighlights } from "@/components/TrustSections";
 
 export function ServicePage({ s }: { s: Service }) {
   const { t } = useLang();
@@ -16,7 +16,7 @@ export function ServicePage({ s }: { s: Service }) {
         <div className="mt-12 grid gap-12 md:grid-cols-[1.4fr_1fr]">
           <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
             <p>{t(s.long)}</p>
-            {s.note && (
+            {s.note && s.slug !== "travel" && (
               <div className="flex items-center gap-5 border-l-2 border-accent pl-5">
                 {s.badge && (
                   <div className="flex size-20 shrink-0 items-center justify-center border bg-logo-surface p-2.5">
@@ -34,6 +34,7 @@ export function ServicePage({ s }: { s: Service }) {
           </div>
         </div>
       </section>
+      {s.slug === "travel" && <AirlineAgentPanel />}
       {s.slug === "travel" && <TravelHighlights />}
       <section className="border-t">
         <div className="mx-auto grid max-w-6xl gap-px md:grid-cols-2">

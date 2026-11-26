@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { PatternBorder } from "@/components/TurkmenPattern";
-import { CredentialsStrip, ProposalCTA } from "@/components/TrustSections";
+import { AirlineAgentBand, CredentialsStrip, ProposalCTA } from "@/components/TrustSections";
 import { ui, useLang } from "@/lib/i18n";
 import { certifications, clients, services, tel } from "@/lib/site";
 
@@ -37,6 +37,8 @@ function Index() {
         </h1>
         <p className="mt-10 max-w-2xl text-lg leading-relaxed text-muted-foreground">{t(ui.intro)}</p>
       </section>
+
+      <AirlineAgentBand />
 
       <section className="border-y">
         <div className="mx-auto max-w-6xl">
