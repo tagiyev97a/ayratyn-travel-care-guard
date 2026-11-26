@@ -7,6 +7,8 @@ import eni from "@/assets/eni.webp.asset.json";
 import gapInsaat from "@/assets/gap-insaat.webp.asset.json";
 import daewoo from "@/assets/daewoo.webp.asset.json";
 import ronesans from "@/assets/ronesans.webp.asset.json";
+import iso9001 from "@/assets/iso-9001.png.asset.json";
+import iso45001 from "@/assets/iso-45001.png.asset.json";
 
 export type Service = {
   slug: "travel" | "cleaning" | "security";
@@ -79,6 +81,33 @@ export const clients: { name: T; logo?: string }[] = [
   { name: { tk: "Eni", en: "Eni", ru: "Eni" }, logo: eni.url },
   { name: { tk: "GAP İnşaat", en: "GAP İnşaat", ru: "GAP İnşaat" }, logo: gapInsaat.url },
   { name: { tk: "Rönesans Holding", en: "Rönesans Holding", ru: "Rönesans Holding" }, logo: ronesans.url },
+];
+
+export const certifications: { code: string; badge: string; name: T; note: T }[] = [
+  {
+    code: "ISO 9001:2015",
+    badge: iso9001.url,
+    name: { tk: "Hil dolandyş ulgamy", en: "Quality management system", ru: "Система менеджмента качества" },
+    note: {
+      tk: "Hyzmatlarymyzyň hiliniň yzygiderli gözegçilikde saklanýandygyny tassyklaýar.",
+      en: "Confirms that the quality of our services is kept under continuous control.",
+      ru: "Подтверждает, что качество наших услуг постоянно контролируется.",
+    },
+  },
+  {
+    code: "ISO 45001:2018",
+    badge: iso45001.url,
+    name: {
+      tk: "Iş howpsuzlygy we saglyk dolandyş ulgamy",
+      en: "Occupational health and safety management system",
+      ru: "Система менеджмента охраны труда и безопасности",
+    },
+    note: {
+      tk: "Işgärlerimiziň howpsuzlygy we saglygy üçin jogapkär çäreleri görýäris.",
+      en: "We take responsibility for the safety and health of our staff.",
+      ru: "Мы несём ответственность за безопасность и здоровье наших сотрудников.",
+    },
+  },
 ];
 
 export const tel = (p: string) => `tel:${p.replace(/\s/g, "")}`;

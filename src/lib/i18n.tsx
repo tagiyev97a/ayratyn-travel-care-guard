@@ -38,4 +38,11 @@ export const ui = {
   services: { tk: "Hyzmatlarymyz", en: "Our services", ru: "Наши услуги" },
   rights: { tk: "Ähli hukuklar goralan.", en: "All rights reserved.", ru: "Все права защищены." },
   other: { tk: "Beýleki hyzmat", en: "Other service", ru: "Другая услуга" },
+  certificates: { tk: "Şahadatnamalar", en: "Certifications", ru: "Сертификаты" },
+  certIntro: {
+    tk: "Hyzmatlarymyz halkara standartlaryna laýyklykda ýerine ýetirilýär.",
+    en: "Our services are delivered in line with international standards.",
+    ru: "Наши услуги выполняются в соответствии с международными стандартами.",
+  },
+  certified: { tk: "Şahadatnamaly", en: "Certified", ru: "Сертифицировано" },
 } satisfies Record<string, T>;
