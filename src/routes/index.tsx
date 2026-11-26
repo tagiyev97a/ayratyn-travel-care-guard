@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { HeroCarousel } from "@/components/HeroCarousel";
 import { ui, useLang } from "@/lib/i18n";
 import { clients, services, tel } from "@/lib/site";
 
@@ -20,9 +21,10 @@ function Index() {
   const { t } = useLang();
   return (
     <main>
-      <section className="mx-auto max-w-6xl px-6 pb-24 pt-16 md:pt-28">
+      <HeroCarousel />
+      <section className="mx-auto max-w-6xl px-6 py-20 md:py-24">
         <p className="rise text-sm font-semibold uppercase tracking-[0.2em] text-accent">{t(ui.city)}</p>
-        <h1 className="rise mt-6 max-w-5xl text-5xl font-medium leading-[1.02] md:text-8xl">
+        <h1 className="rise mt-6 max-w-5xl text-5xl font-medium leading-[1.02] md:text-7xl">
           {t(ui.heroA)} <em className="text-primary">{t(ui.heroAnd)}</em> {t(ui.heroB)}
         </h1>
         <p className="mt-10 max-w-2xl text-lg leading-relaxed text-muted-foreground">{t(ui.intro)}</p>
