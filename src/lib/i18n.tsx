@@ -35,5 +35,7 @@ export const ui = {
   more: { tk: "Hyzmat barada →", en: "About the service →", ru: "Подробнее →" },
   clients: { tk: "Biziň bilen işleýän guramalar", en: "Organisations we work with", ru: "Организации, с которыми мы работаем" },
   contact: { tk: "Habarlaşmak", en: "Contact", ru: "Контакты" },
+  services: { tk: "Hyzmatlarymyz", en: "Our services", ru: "Наши услуги" },
+  rights: { tk: "Ähli hukuklar goralan.", en: "All rights reserved.", ru: "Все права защищены." },
   other: { tk: "Beýleki hyzmat", en: "Other service", ru: "Другая услуга" },
 } satisfies Record<string, T>;
