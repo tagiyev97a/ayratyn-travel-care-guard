@@ -68,11 +68,11 @@ export function ProposalCTA() {
   const c = copy[lang];
   return (
     <section className="border-b bg-ink text-ink-foreground">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[1.4fr_1fr] md:items-center">
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[1.4fr_1fr]">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">AÝRATYN HYZMAT</p>
           <h2 className="mt-4 text-4xl font-medium leading-tight md:text-5xl">{c.proposalTitle}</h2>
-          <p className="mt-5 max-w-2xl leading-relaxed opacity-80">{c.proposalText}</p>
+          <p className="mt-5 max-w-2xl leading-relaxed opacity-85">{c.proposalText}</p>
         </div>
         <div className="flex flex-wrap gap-3">
           <a href="mailto:info@ayratyn-hyzmat.com?subject=Corporate%20service%20proposal" className="inline-flex items-center justify-center bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-widest text-primary-foreground hover:bg-accent">{c.email}</a>
@@ -88,7 +88,7 @@ export function TravelHighlights() {
   const c = copy[lang];
   return (
     <section className="border-y">
-      <div className="mx-auto max-w-6xl px-6 py-16">
+      <div className="mx-auto max-w-6xl px-6 py-20">
         <h2 className="text-3xl font-medium md:text-4xl">{c.travelTitle}</h2>
         <ul className="mt-8 grid gap-6 sm:grid-cols-2 md:grid-cols-4">
           {c.travelItems.map((item, i) => (
