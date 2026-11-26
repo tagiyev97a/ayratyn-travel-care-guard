@@ -11,6 +11,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import { SiteHeader, SiteFooter } from "../components/SiteChrome";
+import { LangProvider } from "../lib/i18n";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -125,9 +126,11 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      <LangProvider>
       <SiteHeader />
       <Outlet />
       <SiteFooter />
+      </LangProvider>
     </QueryClientProvider>
   );
 }

@@ -7,10 +7,10 @@ const s = services[0]!;
 export const Route = createFileRoute("/travel")({
   head: () => ({
     meta: [
-      { title: `${s.name} — AÝRATYN HYZMAT` },
-      { name: "description", content: s.long },
-      { property: "og:title", content: `${s.name} — AÝRATYN HYZMAT` },
-      { property: "og:description", content: s.long },
+      { title: `${s.name.tk} — AÝRATYN HYZMAT` },
+      { name: "description", content: s.long.tk },
+      { property: "og:title", content: `${s.name.tk} — AÝRATYN HYZMAT` },
+      { property: "og:description", content: s.long.tk },
     ],
   }),
   component: () => <ServicePage s={s} />,
