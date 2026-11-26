@@ -5,12 +5,12 @@ import { AirlineAgentBand, ProposalCTA } from "@/components/TrustSections";
 import { ui, useLang } from "@/lib/i18n";
 import { certifications, clients, services, tel } from "@/lib/site";
 
-const desc = "Syýahatçylyk, arassaçylyk we gorag hyzmatlary. Turkish Airlines awiakompaniýasynyň ygtyýarly agentligi.";
+const desc = "Professional travel, cleaning and security services in Ashgabat, Turkmenistan. Turkish Airlines Authorized Agency.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AÝRATYN HYZMAT — Syýahatçylyk, arassaçylyk we gorag" },
+      { title: "AÝRATYN HYZMAT — Travel, Cleaning & Security Services" },
       { name: "description", content: desc },
       { property: "og:title", content: "AÝRATYN HYZMAT" },
       { property: "og:description", content: desc },
